@@ -1,3 +1,9 @@
 #+TITLE: simple-mode
 
-An Emacs major mode for SIMPLE.
+An Emacs major mode for CS3203 SIMPLE.
+
+* Features
+Well, it only has regex-based syntax highlighting atm.
+
+* Why?
+Why not?
