@@ -1,0 +1,3 @@
+#+TITLE: simple-mode
+
+An Emacs major mode for SIMPLE.
