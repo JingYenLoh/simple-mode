@@ -23,15 +23,16 @@
   "Faces used by `simple-mode'."
   :group 'simple-mode)
 
+(defconst simple-procedure-name-regexp
+  (rx "procedure" (1+ space) (group (seq alpha (* alnum))) (0+ space) "{"))
+
 (defconst simple-font-lock-keywords
   (let* ((simple-maybe-keywords
           '("procedure" "read" "print" "call" "while" "if" "then" "else"))
 
          ;; Regexes
          (simple-maybe-keywords-regexp
-          (regexp-opt simple-maybe-keywords 'words))
-         (simple-procedure-name-regexp
-          (rx "procedure" (1+ space) (group (seq alpha (0+ alnum))))))
+          (regexp-opt simple-maybe-keywords 'words)))
 
     `((,simple-maybe-keywords-regexp . font-lock-keyword-face)
       (,simple-procedure-name-regexp . (1 font-lock-function-name-face)))))
