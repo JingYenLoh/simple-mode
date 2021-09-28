@@ -26,6 +26,10 @@
 (defconst simple-procedure-name-regexp
   (rx "procedure" (1+ space) (group (seq alpha (* alnum))) (0+ space) "{"))
 
+;; Elisp-fu too weak to merge this with the above regex >.>
+(defconst simple-called-procedure-regexp
+  (rx "call" (1+ space) (group (seq alpha (* alnum))) (0+ space) ";"))
+
 (defconst simple-font-lock-keywords
   (let* ((simple-maybe-keywords
           '("procedure" "read" "print" "call" "while" "if" "then" "else"))
@@ -35,7 +39,8 @@
           (regexp-opt simple-maybe-keywords 'words)))
 
     `((,simple-maybe-keywords-regexp . font-lock-keyword-face)
-      (,simple-procedure-name-regexp . (1 font-lock-function-name-face)))))
+      (,simple-procedure-name-regexp . (1 font-lock-function-name-face))
+      (,simple-called-procedure-regexp . (1 font-lock-function-name-face)))))
 
 (define-derived-mode simple-mode prog-mode "SIMPLE"
   "A major mode for CS3203's SIMPLE."
