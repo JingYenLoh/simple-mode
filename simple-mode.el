@@ -18,6 +18,7 @@
 ;;  CS3203 SIMPLE major mode
 ;;
 ;;; Code:
+(require 'rx)
 
 (defgroup simple-mode-faces ()
   "Faces used by `simple-mode'."
